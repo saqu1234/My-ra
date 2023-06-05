@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Pull Source') {
       steps {
-        git credentialsId: '40175ef0-da8b-469b-ac26-19b884c7e8ba', branch: "${branch}", url: "${git_url}"
+        git credentialsId: 'd9872ad3-1400-4e29-b881-eccc1e916c43', branch: "${branch}", url: "${git_url}"
        
       }
      }
@@ -29,7 +29,7 @@ pipeline {
         stage('Docker image push') {
            steps {
                 // sh 'aws ecr get-login-password --region ap-south-1 | sudo docker login --username AWS --password-stdin 738275578260.dkr.ecr.ap-south-1.amazonaws.com'
-                 withCredentials([usernamePassword(credentialsId: '992de2ec-4bbe-43af-b19e-f18b007043eb', passwordVariable: 'Password', usernameVariable: 'Username')]) {
+                 withCredentials([usernamePassword(credentialsId: 'c456c0c4-c0bd-4fd9-bd08-68819f79c6ae', passwordVariable: 'Password', usernameVariable: 'Username')]) {
                  sh "sudo docker login -u ${env.Username} -p ${env.Password}"
                  sh "sudo docker image tag demo-image demo-image:${BUILD_NUMBER}"
                  sh "sudo docker image tag demo-image saqu1234/demo-image:${BUILD_NUMBER}"
