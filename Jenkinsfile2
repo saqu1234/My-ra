@@ -32,8 +32,8 @@ pipeline {
                  withCredentials([usernamePassword(credentialsId: '992de2ec-4bbe-43af-b19e-f18b007043eb', passwordVariable: 'Password', usernameVariable: 'Username')]) {
                  sh "sudo docker login -u ${env.Username} -p ${env.Password}"
                  sh "sudo docker image tag demo-image demo-image:${BUILD_NUMBER}"
-                 sh "sudo docker image tag demo-image salilkul87/demo-image:${BUILD_NUMBER}"
-                 sh "sudo docker image push salilkul87/demo-image:${BUILD_NUMBER}" 
+                 sh "sudo docker image tag demo-image saqu1234/demo-image:${BUILD_NUMBER}"
+                 sh "sudo docker image push saqu1234/demo-image:${BUILD_NUMBER}" 
                } 
              }  
           }
